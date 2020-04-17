@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New's Browser</title>
+</head>
+<body>
+    <link rel="stylesheet" type="text/css" href="news.css">
+<div class = Title>
+    <h1 style="color: white; text-align: center; font-style: italic;">New's Browser</h1>
+</div>
+<div>
+ <form class = "search" action="">
+      <label for="" style="font-weight: 500; font-size: 20px;">News</label><br>
+     <input class ="input" type="text"/><br>
+     <input type="submit"/>
+ </form>
+</div>
+<div>
+    <h1 class = "headLine"> Top Headlines</h1> <br>
+    <div class="articles">
+
+    </div>
+</div>
+<div class="container">
+    <ul class = "news-list"></ul>
+</div>
+
+<script>
+    const searchFrom = document.querySelector('.search');
+    const input = document.querySelector('.input');
+    const newsList = document.querySelector('.news-list');
+
+    searchFrom.addEventListener('submit', retrieve)
+
+    
+
+    function retrieve(e) {
+
+        if (input.value == '') {
+            alert('Input is empty!');
+        }
+
+        e.preventDefault()
+        
+        const apiKey = '504949294bc7419d83beebf27c708229'
+
+        let searchTopic = input.value;
+
+        let url = `http://newsapi.org/v2/everything?q=${searchTopic}&apiKey=${apiKey}`
+
+        fetch(url).then((res) => {
+            return res.json()
+        }).then((data)=> {
+            console.log(data);
+            data.articles.forEach(article =>{
+                let div = document.createElement('div');
+                let a = document.createElement('a');
+                a.setAttribute('href',article.url);
+                a.setAttribute('target', '_blank');
+                a.textContent = article.title;
+                div.appendChild(a);
+                newsList.appendChild(div);
+            })
+        }).catch((error)=>{
+            console.log(error)
+        })
+    
+
+        //console.log(searchTopic);
+    }
+</script>
+
+<script type="text/javascript" src="scriptNews.js"></script>
+
+    
+</body>
+
+</html>
