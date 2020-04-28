@@ -18,4 +18,4 @@ This website allow users to browse the news with difference sources.
 
 ## Authors
 
-Shi-Lin Chen shilinch@usc.edu
+Shi-Lin Chen(shilinch@usc.edu)
