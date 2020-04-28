@@ -2,7 +2,7 @@
 
 full-stack project for USC EE599
 
-This website allow users to browse the news with difference sources.
+The website allow users to browse the news with difference sources.
 
 ## Tool
 
