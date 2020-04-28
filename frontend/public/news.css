@@ -1,0 +1,83 @@
+.Title {
+    background-color: #153449;
+}
+
+.container {
+    vertical-align: middle;
+}
+
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.textPart {
+    background-color: whitesmoke;
+}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    font-size: 17px;
+  }
+  .articles {
+      border:  3px solid lightslategray;
+  }
+  .news {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 5px lightgray
+  }
+  
+  .news img {vertical-align: middle;}
+  
+  .news .content {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.2); /* Black background with 0.5 opacity */
+    color: #f1f1f1;
+    width: 100%;
+    padding: 5px;
+  }
+
+  news.a.content:hover, news.a.content:active {font-size: 150%;}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    vertical-align: middle;
+    text-align: center;
+  }
+input[type=submit]:hover {
+    background-color: darkgreen;
+}
+
+input[type=button] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+input[type=button]:hover {
+    background-color: darkgreen;
+}
+
+input[type=text], select {
+    width: 16%;
+}
+

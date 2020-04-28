@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="register.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div style="background-color: whitesmoke;">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+      
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="https://assets.dryicons.com/uploads/icon/svg/5604/ccc1a93b-b5ac-4e11-b7df-909b77d8a490.svg" id="icon" alt="User Icon" />
+          </div>
+      
+          <!-- Login Form -->
+          <!-- action="http://127.0.0.1:3000" -->
+          <form>
+            <label for="email_address"> Suscribe with Email </label><br>
+            <input type="text" id="email_address" class="fadeIn second" name="email_address" placeholder="a1b2c3@usc.edu">
+            <p style = "color: rgb(90, 184, 216);">Do you want to recieve daily news via email?</p>
+            <input type="button" id = "subscribe" class="fadeIn fourth" value="Yes" onclick="login()">
+            <input type="button" id = "subscribe_no" class="fadeIn fourth" value="No, I just want to browse news" onclick="loginNo()">
+          </form>
+      
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <!-- <a class="underlineHover" href="#">Redirecting to New's browser</a> -->
+          </div>
+      
+        </div>
+      </div>
+      <script type="text/javascript" src="scriptNews.js"></script>
+    </div>
+</body>
+</html>
