@@ -20,7 +20,7 @@
       
           <!-- Icon -->
           <div class="fadeIn first">
-            <img src="https://assets.dryicons.com/uploads/icon/svg/5604/ccc1a93b-b5ac-4e11-b7df-909b77d8a490.svg" id="icon" alt="User Icon" />
+            <img src="https://www.stripes.com/polopoly_fs/7.423274.1487831658!/image/image.png_gen/derivatives/default/image.png" id="icon" alt="User Icon" />
           </div>
       
           <!-- Login Form -->
@@ -29,7 +29,18 @@
             <label for="email_address"> Suscribe with Email </label><br>
             <input type="text" id="email_address" class="fadeIn second" name="email_address" placeholder="a1b2c3@usc.edu">
             <p style = "color: rgb(90, 184, 216);">Do you want to recieve daily news via email?</p>
+            <p style = "color: rgb(90, 184, 216);">If yes, select a category for daily news.</p>
             <input type="button" id = "subscribe" class="fadeIn fourth" value="Yes" onclick="login()">
+            <!-- <label for="category">News type</label> -->
+            <select class = "select-css" id="category">
+              <option value="general">general</option>
+              <option value="business">business</option>
+              <option value="entertainment">entertainment</option>
+              <option value="health">health</option>
+              <option value="science">science</option>
+              <option value="sports">sports</option>
+              <option value="technology">technology</option>
+            </select>
             <input type="button" id = "subscribe_no" class="fadeIn fourth" value="No, I just want to browse news" onclick="loginNo()">
           </form>
       
