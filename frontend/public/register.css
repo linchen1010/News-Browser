@@ -283,3 +283,7 @@ html {
   .select-css option {
     font-weight:normal;
   }
+
+  body {
+    background-image: url(https://images.squarespace-cdn.com/content/v1/59a0699b9f8dceeab4199b53/1542297107619-MOVL5ME6SN7CM9MLRY5H/ke17ZwdGBToddI8pDm48kFTEgwhRQcX9r3XtU0e50sUUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKcW7uEhC96WQdj-SwE5EpM0lAopPba9ZX3O0oeNTVSRxdHAmtcci_6bmVLoSDQq_pb/3051795-poster-p-1-fast-company-is-hiring-a-senior-editor-for-news.jpg?format=2500w);
+  }
