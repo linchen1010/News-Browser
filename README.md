@@ -12,6 +12,7 @@ This website allow users to browse the news with difference sources.
 
 ## Preview
 * subscribe page
+
 ![subscribePage](/Subscribe.png)
 * main page
 ![newspage](/NewsPage.png)
