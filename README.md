@@ -13,9 +13,9 @@ The website allow users to browse the news with difference sources.
 
 ## Function
 
-* Allow users to subscribe daily News, which will be sent the user's email address by backend server every 24 hours
-* Browse headliner from different source
-* Search News with keyword
+* Allow users to subscribe daily News with selected category, which will be sent the user's email address by backend server every 24 hours
+* Browse headliner from different sources with selected category
+* Search news with keyword
 
 
 ## Preview
