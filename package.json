@@ -1,0 +1,24 @@
+{
+  "name": "nodejs_fullstack",
+  "version": "1.0.0",
+  "description": "A full stack project starter code for NodeJS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "fullstack",
+    "frontend",
+    "backend"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "newsapi": "^2.4.0",
+    "nodemailer": "^6.4.6"
+  }
+}
