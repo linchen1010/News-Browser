@@ -28,6 +28,7 @@ const delay = function(t) {
 
     let email_address = document.getElementById("email_address").value;
     let subscribe = document.getElementById("subscribe").value;
+    let category = document.getElementById("category").value;
 
     console.log("email_address: ",email_address);
 
@@ -43,7 +44,7 @@ const delay = function(t) {
     try {
   
       // Address of backend
-      let request = `http://127.0.0.1:5000/register?email_address=${email_address}`;
+      let request = `http://127.0.0.1:5000/register?email_address=${email_address}&category=${category}`;
       console.log("request: ", request);
   
       // Send an HTTP GET request to the backend
@@ -117,10 +118,12 @@ async function submit() {
 
     console.log("data.data: ", JSON.stringify(data.data, null, 2));
 
+    // Here could set date and sort option for searching news
     let fromDate = "2020-04-01";
-    let toDate = "2020-04-20";
+    let toDate = "2020-04-25";
     let sortOption = "relevancy"; // relevancy & popularity
-    
+    /////////////////////////////////////////////////////////////////////
+    // url for search
     const url_search = `http://newsapi.org/v2/everything?`+
                        `q=${searchTopic}&` +
                        `from=${fromDate}&` +
@@ -135,7 +138,7 @@ async function submit() {
 
             newsdata.articles.forEach((article) => {
                     
-            //Here we create and add html elements to our html file
+                // Create and add html elements to our html file
                 const div = document.createElement("div")
                 // const div = document.getElementById("articles");
                 div.className = "news"
@@ -146,10 +149,12 @@ async function submit() {
                    <div class = "content">
                     <h1> ${article.title} </h1>
                     <p> ${article.description} </p>
+                    <h6 style ="color: rgb(255, 217, 0); font-weight:600;">${article.source.name}</h6>
                   </div>
                 </a>
                 `
                 articlesDiv.appendChild(div);
+                // console.log(article.source.name);
             })
         }
         fetch(url_search)
@@ -187,9 +192,13 @@ async function headLine() {
       div.removeChild(div.firstChild);
     }
 
+    let category = document.getElementById("category").value;
+    console.log("category now: ", category);
+
     // display Headline News
     try {
         const url = 'http://newsapi.org/v2/top-headlines?' +
+            `category=${category}&` +
             'country=us&' +
             `apiKey=${apiKey}`;
         
@@ -207,10 +216,12 @@ async function headLine() {
                    <div class = "content">
                     <h1> ${article.title} </h1>
                     <p> ${article.description} </p>
+                    <h6 style ="color: rgb(255, 217, 0); font-weight:600;">${article.source.name}</h6>
                   </div>
                 </a>
                 `
                 articlesDiv.appendChild(div);
+                // console.log(article.source.name);
             })
         }
         fetch(url)
