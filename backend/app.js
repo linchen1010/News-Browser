@@ -31,9 +31,6 @@ const delay = function(t) {
   return new Promise(resolve => setTimeout(resolve, t));
 };
 
-/**
- * The default path
- */
 app.get("/", async function(req, res) {
   if (req.query && Object.keys(req.query).length >= 0) {
     console.log("I got a query!");
@@ -43,12 +40,13 @@ app.get("/", async function(req, res) {
 
 app.get("/register", async function(req, res) {
   if (req.query && Object.keys(req.query).length >= 0) {
-    console.log("--->I got a email address!");
+    console.log("I got an email address!");
     await handleLogin(res, res, req.query);
-    console.log("--->Ready to send email!")
-    // setInterval(sendNotification, 3000)
+    // wait for the email_address and category
+    getNewsAsBody();
+    setInterval(sendNotification, 10000)
   }
-});
+})
 
 app.listen(port, err => {
   console.log(`Listening on port: ${port}`);
@@ -62,44 +60,56 @@ app.listen(port, err => {
  */
 
 let userEmail;
+let userCategory;
 
 async function handleLogin(req, res, query) {
   let error = "NO_ERROR";
   let email_address;
+  let category;
 
   console.log("query: ", JSON.stringify(query));
+
   // If there was a query (a query string was sent)
   if (
     query !== undefined &&
-    query.email_address !== undefined
+    query.email_address !== undefined &&
+    query.category !== undefined
   ) {
     email_address = query.email_address;
+    category = query.category;
   } else {
     error = "ERROR: email_address not provided";
   }
 
-  //Generate the output
+  // Generate the output
   let output = {
-    email_address : email_address
+    email_address : email_address,
+    category: category
   };
 
-  //Convert output to JSON
+  // Convert output to JSON
   let outputString = JSON.stringify(output, null, 2);
   console.log("outputString: ", outputString);
 
-  // Let's generate some artificial delay!
+  // Generate some artificial delay
   await delay(500);
 
   // Send it back to the frontend.
   res.send(outputString);
   userEmail = email_address;
+  userCategory = category;
 }
 
+
+/*****************************
+** handle get (searchTopic) **
+******************************/
 async function handleGet(req, res, query) {
+
   let error = "NO_ERROR";
   let searchTopic;
-
   console.log("query: ", JSON.stringify(query));
+
   // If there was a query (a query string was sent)
   if (
     query !== undefined &&
@@ -115,17 +125,15 @@ async function handleGet(req, res, query) {
     searchTopic: searchTopic
   };
     //check if search work
-    searchTopic = query.searchTopic;
-    newsapi.v2.everything({
-      q: `${searchTopic}`,
-      sources: 'bbc-news,the-verge',
-      domains: 'bbc.co.uk, techcrunch.com',
-      from: '2020-04-01',
-      to: '2017-04-23',
-      language: 'en',
-      sortBy: 'relevancy',
-      page: 2
-    }).then(response => {
+  searchTopic = query.searchTopic;
+  newsapi.v2.everything({
+    q: `${searchTopic}`,
+    from: '2020-04-01',
+    to: '2017-04-23',
+    language: 'en',
+    sortBy: 'relevancy',
+    page: 2
+  }).then(response => {
       // ** uncomment to see response **
       // console.log(response);
     });
@@ -141,25 +149,7 @@ async function handleGet(req, res, query) {
   res.send(outputString);
 }
 
-// ** uncomment to see response **
-// displayHeadLine();
-
-
-// check if response is valid
-function displayHeadLine() {
-  newsapi.v2.topHeadlines({
-    category: 'general',
-    language: 'en',
-    country: 'us'
-  }).then(response => {
-    console.log(response.articles);
-  });
-}
-
-const url = 'http://newsapi.org/v2/top-headlines?' +
-            'country=us&' +
-            `apiKey=${apiKey}`;
-        
+// Recieve news and assign to body //
 const recieveNews = (newsdata) => {
   newsdata.articles.forEach((article) => {    
     // load news content to body for email content
@@ -179,16 +169,19 @@ const recieveNews = (newsdata) => {
 
 //-----------------------------------------------------------
 
-async function getNewsAsBody() {
-  await fetch(url)
-        .then(response => response.json())
-        .then(recieveNews)
-
-  // console.log(body);
-  console.log("body has got the news !!!")
+// assign news to body for sending mail
+function getNewsAsBody() {
+  const url = 'http://newsapi.org/v2/top-headlines?' +
+              `category=${userCategory}&` +
+              'country=us&' +
+              `apiKey=${apiKey}`;
+  fetch(url)
+  .then(response => response.json())
+  .then(recieveNews)
+  console.log("-> Body has got the news !")
+  console.log("--> Ready to send email  !!")
 }
 
-getNewsAsBody();
 
 // Sends an email using gmail account
 function SendMail(mailOptions) {
@@ -227,6 +220,3 @@ async function sendNotification() {
   };
   SendMail(mailOptions);
 }
-
-// set time to send email 
-setInterval(sendNotification, 180000);
