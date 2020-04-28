@@ -8,8 +8,6 @@ function initialize() {
     headLine.style.display = "none";
     let searchDisplay = document.getElementById("searchDisplay");
     searchDisplay.style.display = "none";
-    let redirect = document.getElementById("formFooter");
-    redirect.style.display = "none";
   }
 
 /**
@@ -198,9 +196,9 @@ async function headLine() {
     // display Headline News
     try {
         const url = 'http://newsapi.org/v2/top-headlines?' +
-            `category=${category}&` +
-            'country=us&' +
-            `apiKey=${apiKey}`;
+                    `category=${category}&` +
+                    'country=us&' +
+                    `apiKey=${apiKey}`;
         
         const recieveNews = (newsdata) => {
             const articlesDiv = document.querySelector(".articles")
@@ -233,5 +231,3 @@ async function headLine() {
     // Set the cursor back to default
     document.body.style.cursor = "default";
   }
-
-  // <img src="https://previews.123rf.com/images/zerbor/zerbor1503/zerbor150300056/37603324-a-newspaper-with-the-headline-breaking-news.jpg" alt="News Image" style="width:100%"></img>
