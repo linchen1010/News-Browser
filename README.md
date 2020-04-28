@@ -10,6 +10,14 @@ This website allow users to browse the news with difference sources.
 * Backend: Node.js, express
 * Google News Api: [NewsApi](https://newsapi.org)
 
+
+## Function
+
+* Allow users to subscribe daily News, which will be sent the user's email address by backend server every 24 hours
+* Browse headliner from different source
+* Search News with keyword
+
+
 ## Preview
 * subscribe page
 
@@ -18,12 +26,6 @@ This website allow users to browse the news with difference sources.
 ![newspage](/NewsPage.png)
 * search news with keyword - COVID-19
 ![searchPage](/Search.png)
-
-## Function
-
-* Allow users to subscribe daily News, which will be sent the user's email address by backend server every 24 hours
-* Browse headliner from different source
-* Search News with keyword
 
 
 ## Authors
