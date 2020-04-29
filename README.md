@@ -20,11 +20,11 @@ The website allow users to browse the news with difference sources.
 
 ## Preview
 * Register page for users to enter email
-![Register page](registerPage.png)
+![Register page](/image/registerPage.png)
 * News page
-![News page](newsPage.png)
+![News page](/image/newsPage.png)
 * Headliner preview
-![headliner](headliner.gif)
+![headliner](/image/headliner.gif)
 
 ## Authors
 
