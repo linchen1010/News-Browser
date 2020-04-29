@@ -20,6 +20,27 @@ The website allow users to browse the news with difference sources and specific 
 #### Search:
 * Search news with keyword with selected sort option.
 
+## Getting Started
+##### To get the Node server run locally
+```bash
+git clone https://github.com/linchen1010/News-Browser.git
+npm install
+```
+
+### Runing Backend:
+```bash
+cd backend
+node app.js
+```
+
+### Runing Frontend:
+```bash
+cd frontend
+node app.js
+```
+
+Then open your browser at http://localhost:3000
+
 
 ## Preview
 * Register page for users to enter email
