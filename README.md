@@ -18,7 +18,7 @@ The website allow users to browse the news with difference sources and specific 
 ### Headliner:
 * Browse headliner from different sources with selected category.
 ### Keyword Search:
-* Users could search their interested news by input keywords in the search search box.
+* Users could search their interested news by enter keywords in the search search box with prefered search option
 
 ## Getting Started
 
