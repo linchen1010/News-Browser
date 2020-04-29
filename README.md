@@ -39,7 +39,8 @@ cd frontend
 node app.js
 ```
 
-Then open your browser at http://localhost:3000
+Then open your browser at http://localhost:3000 for news.html
+                          http://localhost:3000/register for register.html
 
 
 ## Preview
