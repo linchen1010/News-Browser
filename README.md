@@ -19,7 +19,12 @@ The website allow users to browse the news with difference sources.
 
 
 ## Preview
-
+* Register page for users to enter email
+![Register page](registerPage.png)
+* News page
+![News page](newsPage.png)
+* Headliner preview
+![headliner](headliner.gif)
 
 ## Authors
 
