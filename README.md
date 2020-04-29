@@ -2,7 +2,7 @@
 
 full-stack project for USC EE599
 
-The website allow users to browse the news with difference sources.
+The website allow users to browse the news with difference sources and specific categories.
 
 ## Tool
 
@@ -13,9 +13,12 @@ The website allow users to browse the news with difference sources.
 
 ## Function
 
-* Allow users to subscribe daily News with selected category, which will be sent to the user's email address by backend server every 24 hours
-* Browse headliner from different sources with selected category
-* Search news with keyword
+#### Subscribe: 
+* Allow users to subscribe daily News with selected category, which will be sent to the user's email address by backend server every 24 hours.
+#### Headliner:
+* Browse headliner from different sources with selected category.
+#### Search:
+* Search news with keyword with selected sort option.
 
 
 ## Preview
