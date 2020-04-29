@@ -50,7 +50,7 @@ or http://localhost:3000 to news.html
 
 ## Preview
 * Register page for users to enter email
-![Register page](/image/registerPage.png)
+![Register page](/image/register.png)
 * News page
 ![News page](/image/newsPage.png)
 * Search preview
