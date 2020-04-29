@@ -13,12 +13,12 @@ The website allow users to browse the news with difference sources and specific 
 
 ## Function
 
-#### Subscribe: 
+### Subscribe: 
 * Allow users to subscribe daily headliner with selected category, which will be sent to the user's email address by backend server every 24 hours.
-#### Headliner:
+### Headliner:
 * Browse headliner from different sources with selected category.
-#### Search:
-* Search news with keyword with selected sort option.
+### Keyword Search:
+* Users could search their interested news by input keywords in the search search box.
 
 ## Getting Started
 
