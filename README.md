@@ -2,7 +2,7 @@
 
 full-stack project for USC EE599
 
-The website allow users to browse the news with difference sources and specific categories.
+The website allow users to browse the news with difference sources and specific categories. Users could also decide if they want to receive daily headliner via email address.
 
 ## Tool
 
