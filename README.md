@@ -21,7 +21,7 @@ The website allow users to browse the news with difference sources and specific 
 * Search news with keyword with selected sort option.
 
 ## Getting Started
-##### To get the Node server run locally
+### clone and install package
 ```bash
 git clone https://github.com/linchen1010/News-Browser.git
 npm install
