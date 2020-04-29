@@ -13,12 +13,12 @@ The website allow users to browse the news with difference sources and specific 
 
 ## Function
 
-#### Subscribe: 
-* Allow users to subscribe daily News with selected category, which will be sent to the user's email address by backend server every 24 hours.
-#### Headliner:
+### Subscribe: 
+* Allow users to subscribe daily headliner with selected category, which will be sent to the user's email address by backend server every 24 hours.
+### Headliner:
 * Browse headliner from different sources with selected category.
-#### Search:
-* Search news with keyword with selected sort option.
+### Keyword Search:
+* Users could search their interested news by enter keywords in the search search box with prefered search options.
 
 ## Getting Started
 
@@ -55,6 +55,8 @@ or http://localhost:3000 to news.html
 ![News page](/image/newsPage.png)
 * Search preview
 ![Search example](/image/SearchExample.gif)
+* Email - Headliner with category "Sports"
+![Email example](/image/email.gif)
 
 ## Authors
 
