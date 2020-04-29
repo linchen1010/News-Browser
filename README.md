@@ -55,6 +55,8 @@ or http://localhost:3000 to news.html
 ![News page](/image/newsPage.png)
 * Search preview
 ![Search example](/image/SearchExample.gif)
+* Email - Headliner with category "Sports"
+![Email example](/image/email.gif)
 
 ## Authors
 
