@@ -23,6 +23,7 @@ The website allow users to browse the news with difference sources and specific 
 ## Getting Started
 
 #### You will need an API key from [https://newsapi.org](https://newsapi.org).
+for more about NewsAPI, click [here](https://github.com/bzarras/newsapi/blob/master/README.md)
 
 ### clone and install package
 ```bash
