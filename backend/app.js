@@ -10,9 +10,11 @@ global.fetch = require("node-fetch");
 const nodemailer = require("nodemailer");
 const moment = require("moment");
 
+////////////////////////////////////////////////////////////////////
 let pw = "ben841010";
 // Set gmail username and password
 let spec = `smtps://linchennn1010@gmail.com:${pw}@smtp.gmail.com`;
+////////////////////////////////////////////////////////////////////
 
 // We need cors middleware to bypass CORS security in browsers.
 const cors = require("cors");
@@ -38,13 +40,15 @@ app.get("/", async function(req, res) {
   }
 });
 
+// Get data from the endpoint .../register
 app.get("/register", async function(req, res) {
   if (req.query && Object.keys(req.query).length >= 0) {
     console.log("I got an email address!");
     await handleLogin(res, res, req.query);
     // wait for the email_address and category
     getNewsAsBody();
-    setInterval(sendNotification, 10000)
+    // set time period for sending mail in (ms), i.e. 24hrs = 86,400,000 ms, 1hr = 3,600,000
+    setInterval(sendNotification, 12000) // now is 2mins, for demo
   }
 })
 
@@ -61,6 +65,12 @@ app.listen(port, err => {
 
 let userEmail;
 let userCategory;
+
+
+/* 
+ * This function handle "YES" button in register page  which will get
+ * user's "email_address" and "category" for latter sending news email
+ */
 
 async function handleLogin(req, res, query) {
   let error = "NO_ERROR";
@@ -129,32 +139,32 @@ async function handleGet(req, res, query) {
   newsapi.v2.everything({
     q: `${searchTopic}`,
     from: '2020-04-01',
-    to: '2017-04-23',
+    to: '2017-04-28',
     language: 'en',
     sortBy: 'relevancy',
     page: 2
   }).then(response => {
-      // ** uncomment to see response **
+      // ** uncomment to see response **//
       // console.log(response);
     });
 
-  //Convert output to JSON
+  // Convert output to JSON
   let outputString = JSON.stringify(output, null, 2);
   console.log("outputString: ", outputString);
 
-  //artificial delay!
+  // artificial delay
   await delay(500);
 
   // Send it back to the frontend.
   res.send(outputString);
 }
 
-// Recieve news and assign to body //
+// Recieve news and assign to body 
 const recieveNews = (newsdata) => {
   newsdata.articles.forEach((article) => {    
     // load news content to body for email content
     body +=  `
-              <div style="margin: 10px; border: 3px solid lightgray; border-style: dotted;">
+              <div style="margin: 10px; padding: 20px; border: 3px solid lightgray; border-style: dotted;">
               <a href="${article.url}">
               <h1> ${article.title} </h1>
               </a>
@@ -169,7 +179,7 @@ const recieveNews = (newsdata) => {
 
 //-----------------------------------------------------------
 
-// assign news to body for sending mail
+// Assign news to body for the purpose of sending mail
 function getNewsAsBody() {
   const url = 'http://newsapi.org/v2/top-headlines?' +
               `category=${userCategory}&` +
@@ -201,17 +211,19 @@ function SendMail(mailOptions) {
     console.log(`Message has been sent to "${userEmail}" ` + info.response);
   });
 }
+
 //-----------------------------------------------------------
 
 async function sendNotification() {
   
-  let date = moment().format("MMMM Do YYYY");
+  let date = moment().format("MMMM Do, YYYY");
+  let upperUserCategory = userCategory.toUpperCase();
 
   let mailOptions = {
     from: '"News Browser" <no-reply@gmail.com>', // sender address
     to: `${userEmail}`, // list of receivers
-    subject: `🔥 📰 Daily News from News Browser`, // Subject line
-    html: `<h1>Headine News  -- <br>
+    subject: `🔥 📰 Daily News from News Browser`, // subject line
+    html: `<h1 style="text-align: center;"> ${upperUserCategory} <br> Headine News <br>
               ${date}</h1>  
               ${body} 
           <br> 
