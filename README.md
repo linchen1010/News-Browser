@@ -2,13 +2,13 @@
 
 full-stack project for USC EE599
 
-The website allow users to browse the news with difference sources and specific categories.
+The website allow users to browse the news with difference sources and specific categories. Users could also decide if they want to receive daily headliner via email address.
 
 ## Tool
 
 * Frontend: HTML, CSS, Bootstrap4
 * Backend: Node.js, express
-* Google News Api: [NewsApi](https://newsapi.org)
+* NewsAPI: [NewsApi](https://newsapi.org)  Power by NewsAPI.org.
 
 
 ## Function
@@ -21,7 +21,11 @@ The website allow users to browse the news with difference sources and specific 
 * Search news with keyword with selected sort option.
 
 ## Getting Started
-##### To get the Node server run locally
+
+#### You will need an API key from [https://newsapi.org](https://newsapi.org).
+for more about NewsAPI, click [here](https://github.com/bzarras/newsapi)
+
+### clone and install package
 ```bash
 git clone https://github.com/linchen1010/News-Browser.git
 npm install
@@ -39,7 +43,9 @@ cd frontend
 node app.js
 ```
 
-Then open your browser at http://localhost:3000
+Then open your browser at http://localhost:3000/register to register.html
+
+or http://localhost:3000 to news.html
 
 
 ## Preview
@@ -47,8 +53,8 @@ Then open your browser at http://localhost:3000
 ![Register page](/image/registerPage.png)
 * News page
 ![News page](/image/newsPage.png)
-* Headliner preview
-![headliner](/image/headliner.gif)
+* Search preview
+![Search example](/image/SearchExample.gif)
 
 ## Authors
 
