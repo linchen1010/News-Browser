@@ -8,7 +8,7 @@ The website allow users to browse the news with difference sources and specific 
 
 * Frontend: HTML, CSS, Bootstrap4
 * Backend: Node.js, express
-* Google News Api: [NewsApi](https://newsapi.org)
+* NewsAPI: [NewsApi](https://newsapi.org) Power by NewsAPI.org
 
 
 ## Function
@@ -21,6 +21,9 @@ The website allow users to browse the news with difference sources and specific 
 * Search news with keyword with selected sort option.
 
 ## Getting Started
+
+#### You will need an API key from [https://newsapi.org](https://newsapi.org).
+
 ### clone and install package
 ```bash
 git clone https://github.com/linchen1010/News-Browser.git
