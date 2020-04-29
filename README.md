@@ -48,7 +48,7 @@ Then open your browser at http://localhost:3000
 * News page
 ![News page](/image/newsPage.png)
 * Headliner preview
-![headliner](/image/headliner.gif)
+![Search example](/image/SearchExample.gif)
 
 ## Authors
 
