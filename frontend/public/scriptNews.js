@@ -83,7 +83,9 @@ async function submit() {
 
   // Get search topic from the user
   let searchTopic = document.getElementById("searchTopic").value;
+  let sortOption = document.getElementById("sortBy").value;
 
+  console.log("sortOption now:", sortOption);
   
   let headline = document.getElementById("headLineTitle");
     headline.style.display = "none";
@@ -117,19 +119,16 @@ async function submit() {
     console.log("data.data: ", JSON.stringify(data.data, null, 2));
 
     // Here could set date and sort option for searching news
-    let fromDate = "2020-04-01";
-    let toDate = "2020-04-25";
-    let sortOption = "relevancy"; // relevancy & popularity
+    let fromDate = "2020-04-05"; 
+    let toDate = "2020-04-29";
     /////////////////////////////////////////////////////////////////////
     // url for search
     const url_search = `http://newsapi.org/v2/everything?`+
                        `q=${searchTopic}&` +
-                       `from=${fromDate}&` +
-                       `to=${toDate}` +
+                      //  `from=${fromDate}&` +
+                      //  `to=${toDate}&` +
                        `sortBy=${sortOption}&` +
                        `apiKey=${apiKey}`;
-    
-    await delay(1000);
 
     const searchNews = (newsdata) => {
             const articlesDiv = document.querySelector(".articles");
@@ -155,6 +154,7 @@ async function submit() {
                 // console.log(article.source.name);
             })
         }
+        await delay(1000);
         fetch(url_search)
         .then(response => response.json())
         .then(searchNews)
@@ -222,6 +222,7 @@ async function headLine() {
                 // console.log(article.source.name);
             })
         }
+        await delay(1000);
         fetch(url)
         .then(response => response.json())
         .then(recieveNews)
