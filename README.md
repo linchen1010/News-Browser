@@ -13,7 +13,7 @@ The website allow users to browse the news with difference sources.
 
 ## Function
 
-* Allow users to subscribe daily News with selected category, which will be sent the user's email address by backend server every 24 hours
+* Allow users to subscribe daily News with selected category, which will be sent to the user's email address by backend server every 24 hours
 * Browse headliner from different sources with selected category
 * Search news with keyword
 
