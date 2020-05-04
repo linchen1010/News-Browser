@@ -61,6 +61,10 @@ or http://localhost:3000 to news.html
 ## Future Work
 * customize news for users like "popular news"
 * users could specify news source (i.e. bbc, cnn)
+* users' comment
+
+## Link
+[youtube video](https://www.youtube.com/watch?v=bYj5a5SZ_Xs)
 
 ## Authors
 
