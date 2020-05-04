@@ -1,8 +1,5 @@
 let should = require('should');
 const fetch = require("node-fetch");
-let assert = require('assert')
-
-
 const apiKey = '504949294bc7419d83beebf27c708229';
 
 
