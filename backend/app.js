@@ -11,8 +11,8 @@ const nodemailer = require("nodemailer");
 const moment = require("moment");
 
 ////////////////////////////////////////////////////////////////////
-let pw = "ben841010";
 // Set gmail username and password
+let pw = "ben841010";
 let spec = `smtps://linchennn1010@gmail.com:${pw}@smtp.gmail.com`;
 ////////////////////////////////////////////////////////////////////
 
@@ -47,8 +47,8 @@ app.get("/register", async function(req, res) {
     await handleLogin(res, res, req.query);
     // wait for the email_address and category
     getNewsAsBody();
-    // set time period for sending mail in (ms), i.e. 24hrs = 86,400,000 ms, 1hr = 3,600,000
-    setInterval(sendNotification, 12000) // now is 2mins, for demo
+    // set time period for sending mail in (ms), (i.e. 24hrs = 86,400,000 ms, 6hrs = 21,600,000,  1hr = 3,600,000)
+    setInterval(sendNotification, 21600000)
   }
 })
 
@@ -68,7 +68,7 @@ let userCategory;
 
 
 /* 
- * This function handle "YES" button in register page  which will get
+ * This function handle "YES" button in register page  which will get 
  * user's "email_address" and "category" for latter sending news email
  */
 
@@ -111,9 +111,10 @@ async function handleLogin(req, res, query) {
 }
 
 
-/*****************************
-** handle get (searchTopic) **
-******************************/
+/* 
+ * This function handle "search" button in news page 
+ * which will get keywords from users
+ */
 async function handleGet(req, res, query) {
 
   let error = "NO_ERROR";
@@ -159,8 +160,8 @@ async function handleGet(req, res, query) {
   res.send(outputString);
 }
 
-// Recieve news and assign to body 
-const recieveNews = (newsdata) => {
+// Receive news and assign to body 
+const receiveNews = (newsdata) => {
   newsdata.articles.forEach((article) => {    
     // load news content to body for email content
     body +=  `
@@ -187,7 +188,7 @@ function getNewsAsBody() {
               `apiKey=${apiKey}`;
   fetch(url)
   .then(response => response.json())
-  .then(recieveNews)
+  .then(receiveNews)
   console.log("-> Body has got the news !")
   console.log("--> Ready to send email  !!")
 }
