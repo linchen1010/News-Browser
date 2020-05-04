@@ -64,7 +64,7 @@ or http://localhost:3000 to news.html
 * users' comment
 
 ## Link
-[youtube video](https://www.youtube.com/watch?v=bYj5a5SZ_Xs)
+[Youtube video](https://www.youtube.com/watch?v=bYj5a5SZ_Xs)
 
 ## Authors
 
