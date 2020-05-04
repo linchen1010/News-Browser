@@ -48,7 +48,7 @@ Then open your browser at http://localhost:3000/register to register.html
 or http://localhost:3000 to news.html
 
 
-## Preview
+## Overview
 * Register page for users to enter email
 ![Register page](/image/register.png)
 * News page
@@ -66,6 +66,6 @@ or http://localhost:3000 to news.html
 ## Link
 [Youtube video](https://www.youtube.com/watch?v=bYj5a5SZ_Xs)
 
-## Authors
+## Author
 
 Shi-Lin Chen(shilinch@usc.edu)
