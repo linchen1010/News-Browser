@@ -58,6 +58,10 @@ or http://localhost:3000 to news.html
 * Email - Headliner with category "Sports"
 ![Email example](/image/email.gif)
 
+## Future Work
+* customize news for users like "popular news"
+* users could specify news source (i.e. bbc, cnn)
+
 ## Authors
 
 Shi-Lin Chen(shilinch@usc.edu)
