@@ -66,6 +66,6 @@ or http://localhost:3000 to news.html
 ## Link
 [Youtube video](https://www.youtube.com/watch?v=bYj5a5SZ_Xs)
 
-## Authors
+## Author
 
 Shi-Lin Chen(shilinch@usc.edu)
