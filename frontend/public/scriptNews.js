@@ -21,45 +21,46 @@ const delay = function(t) {
   
   initialize();
 
-  async function login() {
-    console.log("In login!");
+// handle login button in register page
+async function login() {
+  console.log("In login!");
 
-    let email_address = document.getElementById("email_address").value;
-    let subscribe = document.getElementById("subscribe").value;
-    let category = document.getElementById("category").value;
+  let email_address = document.getElementById("email_address").value;
+  let subscribe = document.getElementById("subscribe").value;
+  let category = document.getElementById("category").value;
 
-    console.log("email_address: ",email_address);
+  console.log("email_address: ",email_address);
 
-    if (email_address==='') {
-      alert("Please enter email address to continue!")
-      return false;
-    }
-
-    console.log("subscribe: ", subscribe);
-  
-    document.body.style.cursor = "wait";
-    
-    try {
-  
-      // Address of backend
-      let request = `http://127.0.0.1:5000/register?email_address=${email_address}&category=${category}`;
-      console.log("request: ", request);
-  
-      // Send an HTTP GET request to the backend
-      const data = await axios.get(request);
-  
-      console.log("data.data: ", JSON.stringify(data.data, null, 2));
-
-      await delay(2000);
-      location.replace("http://127.0.0.1:3000")
-      
-    } catch (error) {
-      console.log("error: ", error);
-      console.log("error.status: ",error.response.status)
-    }
-  
+  if (email_address==='') {
+    alert("Please enter email address to continue!")
+    return false;
   }
 
+  console.log("subscribe: ", subscribe);
+  
+  document.body.style.cursor = "wait";
+    
+  try {
+  
+    // Address of backend
+    let request = `http://127.0.0.1:5000/register?email_address=${email_address}&category=${category}`;
+    console.log("request: ", request);
+  
+    // Send an HTTP GET request to the backend
+    const data = await axios.get(request);
+  
+    console.log("data.data: ", JSON.stringify(data.data, null, 2));
+
+    await delay(2000);
+    location.replace("http://127.0.0.1:3000")
+      
+  } catch (error) {
+    console.log("error: ", error);
+    console.log("error.status: ",error.response.status)
+    }
+}
+
+// user click "no" to redirect user to the news page
 async function loginNo() {
     console.log("In loginNo!");
     document.body.style.cursor = "wait";
@@ -78,6 +79,8 @@ async function loginNo() {
 /*************************
 **     handle search    **
 *************************/
+// get searchTopic from frontend and set the url
+// fetch url to get response => newsdata, then display it
 async function submit() {
   console.log("In submit!");
 
@@ -172,6 +175,7 @@ async function submit() {
 /*************************
 **   Headline Display   **
 *************************/
+// fetch url to get response => newsdata, then display it
 async function headLine() {
 
    let searchDisplay = document.getElementById("searchDisplay");
@@ -200,7 +204,7 @@ async function headLine() {
                     'country=us&' +
                     `apiKey=${apiKey}`;
         
-        const recieveNews = (newsdata) => {
+        const receiveNews = (newsdata) => {
             const articlesDiv = document.querySelector(".articles")
             newsdata.articles.forEach((article) => {
                     
@@ -225,7 +229,7 @@ async function headLine() {
         await delay(1000);
         fetch(url)
         .then(response => response.json())
-        .then(recieveNews)
+        .then(receiveNews)
     } catch (error) {
       console.log("error: ", error);
     }
