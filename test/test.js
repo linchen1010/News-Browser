@@ -7,6 +7,10 @@ const apiKey = '504949294bc7419d83beebf27c708229';
 
 
 let category = ['general', 'business', 'entertainment', 'health', 'science', 'technology'];
+/*
+ * test if headline url could receive the newsdata with fix categories
+ * the status should be "ok" and totalresult should great than 0
+ */
 async function headlineTest() {
 for(cate of category) {
     
@@ -25,8 +29,12 @@ for(cate of category) {
 }
 }
 
-
-let search = ['facebook', 'covid-19', 'usc', 'california', 'iphoneSE'] // randomly choose for the keyword search
+// randomly choose for the keyword search
+let search = ['facebook', 'covid-19', 'usc', 'california', 'iphoneSE']
+/*
+ * test if everything url could receive the newsdata with some random keyword
+ * the status should be "ok" and totalresult should great than 0
+ */
 async function searchTest() {
     for(s of search) {
         // console.log(cate);
