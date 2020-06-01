@@ -7,7 +7,7 @@ The website allows users to browse the news with difference sources and specific
 ## Tool
 
 * Frontend: HTML, CSS, Bootstrap4
-* Backend: Node.js, express
+* Backend: Node.js, Express
 * NewsAPI: [NewsApi](https://newsapi.org)  Power by NewsAPI.org.
 
 
