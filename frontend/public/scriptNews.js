@@ -1,7 +1,6 @@
 const apiKey = '504949294bc7419d83beebf27c708229'
 
 function initialize() {
-    // Initialize min and max values
     document.getElementById("searchTopic").value = "";
     // Hide the loader in the beginning
     let headLine = document.getElementById("headLineTitle");
