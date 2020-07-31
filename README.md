@@ -1,7 +1,7 @@
 # News-Browser
 
 This is my first web appliaction project.  
-It's a Full-stack project for USC EE599
+It's a full-stack project for USC EE599
 
 The website allows users to browse the news with difference sources and specific categories. Users could also decide if they want to receive daily headliner via email address.
 
