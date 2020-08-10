@@ -32,16 +32,9 @@ git clone https://github.com/linchen1010/News-Browser.git
 npm install
 ```
 
-### Runing Backend:
+### Run frontend and backend
 ```bash
-cd backend
-node app.js
-```
-
-### Runing Frontend:
-```bash
-cd frontend
-node app.js
+npm run start
 ```
 
 Then open your browser at http://localhost:3000/register to register.html
