@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-let port = 3000;
+let port = process.env.PORT || 3000;
 
 // Make everything under public folder available to the outside world
 // Don't put anything sensitive here.

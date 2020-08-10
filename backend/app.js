@@ -22,7 +22,7 @@ const cors = require('cors');
 app.use(express.static('static'));
 app.use(cors());
 
-let port = 5000;
+let port = process.env.PORT || 5000;
 let body = ' ';
 
 /**
