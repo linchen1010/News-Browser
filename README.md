@@ -26,7 +26,7 @@ The website allows users to browse the news with difference sources and specific
 #### You will need an API key from [https://newsapi.org](https://newsapi.org).
 for more about NewsAPI, click [here](https://github.com/bzarras/newsapi)
 
-### clone and install package
+### Clone and install package
 ```bash
 git clone https://github.com/linchen1010/News-Browser.git
 npm install
