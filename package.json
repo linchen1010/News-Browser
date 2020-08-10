@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client": "node frontend/app.js",
-    "server": "node backend/app.js",
+    "client": "cd frontend && node app.js",
+    "server": "cd backend && node app.js",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
