@@ -180,7 +180,7 @@ const receiveNews = (newsdata) => {
 // Assign news to body for the purpose of sending mail
 function getNewsAsBody() {
   const url =
-    'http://newsapi.org/v2/top-headlines?' +
+    'https://newsapi.org/v2/top-headlines?' +
     `category=${userCategory}&` +
     'country=us&' +
     `apiKey=${apiKey}`;
