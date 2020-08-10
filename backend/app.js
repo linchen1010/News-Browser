@@ -1,83 +1,82 @@
-"use strict";
+'use strict';
 
-const express = require("express");
+const express = require('express');
 const app = express();
 const NewsAPI = require('newsapi');
 const newsapi = new NewsAPI('504949294bc7419d83beebf27c708229');
 const apiKey = '504949294bc7419d83beebf27c708229';
 
-global.fetch = require("node-fetch");
-const nodemailer = require("nodemailer");
-const moment = require("moment");
+global.fetch = require('node-fetch');
+const nodemailer = require('nodemailer');
+const moment = require('moment');
 
 ////////////////////////////////////////////////////////////////////
 // Set gmail username and password
-let pw = "ben841010";
+let pw = 'ben841010';
 let spec = `smtps://linchennn1010@gmail.com:${pw}@smtp.gmail.com`;
 ////////////////////////////////////////////////////////////////////
 
 // We need cors middleware to bypass CORS security in browsers.
-const cors = require("cors");
+const cors = require('cors');
 
-app.use(express.static("static"));
+app.use(express.static('static'));
 app.use(cors());
 
 let port = 5000;
-let body = " ";
+let body = ' ';
 
 /**
  * A promise that resolves after t ms.
- * @param {Number} t 
+ * @param {Number} t
  */
-const delay = function(t) {
-  return new Promise(resolve => setTimeout(resolve, t));
+const delay = function (t) {
+  return new Promise((resolve) => setTimeout(resolve, t));
 };
 
-app.get("/", async function(req, res) {
+app.get('/', async function (req, res) {
   if (req.query && Object.keys(req.query).length >= 0) {
-    console.log("I got a query!");
+    console.log('I got a query!');
     handleGet(res, res, req.query);
   }
 });
 
 // Get data from the endpoint .../register
-app.get("/register", async function(req, res) {
+app.get('/register', async function (req, res) {
   if (req.query && Object.keys(req.query).length >= 0) {
-    console.log("I got an email address!");
+    console.log('I got an email address!');
     await handleLogin(res, res, req.query);
     // wait for the email_address and category
     getNewsAsBody();
     // set time period for sending mail in (ms), (i.e. 24hrs = 86,400,000 ms, 6hrs = 21,600,000,  1hr = 3,600,000)
-    setInterval(sendNotification, 21600000)
+    setInterval(sendNotification, 21600000);
   }
-})
+});
 
-app.listen(port, err => {
+app.listen(port, (err) => {
   console.log(`Listening on port: ${port}`);
 });
 //-----------------------------------------------------------------------------
 /**
  * Handles a Get request
- * @param {Object} req 
- * @param {Object} res 
- * @param {Object} query 
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} query
  */
 
 let userEmail;
 let userCategory;
 
-
-/* 
- * This function handle "YES" button in register page  which will get 
+/*
+ * This function handle "YES" button in register page  which will get
  * user's "email_address" and "category" for latter sending news email
  */
 
 async function handleLogin(req, res, query) {
-  let error = "NO_ERROR";
+  let error = 'NO_ERROR';
   let email_address;
   let category;
 
-  console.log("query: ", JSON.stringify(query));
+  console.log('query: ', JSON.stringify(query));
 
   // If there was a query (a query string was sent)
   if (
@@ -88,18 +87,18 @@ async function handleLogin(req, res, query) {
     email_address = query.email_address;
     category = query.category;
   } else {
-    error = "ERROR: email_address not provided";
+    error = 'ERROR: email_address not provided';
   }
 
   // Generate the output
   let output = {
-    email_address : email_address,
-    category: category
+    email_address: email_address,
+    category: category,
   };
 
   // Convert output to JSON
   let outputString = JSON.stringify(output, null, 2);
-  console.log("outputString: ", outputString);
+  console.log('outputString: ', outputString);
 
   // Generate some artificial delay
   await delay(500);
@@ -110,48 +109,46 @@ async function handleLogin(req, res, query) {
   userCategory = category;
 }
 
-
-/* 
- * This function handle "search" button in news page 
+/*
+ * This function handle "search" button in news page
  * which will get keywords from users
  */
 async function handleGet(req, res, query) {
-
-  let error = "NO_ERROR";
+  let error = 'NO_ERROR';
   let searchTopic;
-  console.log("query: ", JSON.stringify(query));
+  console.log('query: ', JSON.stringify(query));
 
   // If there was a query (a query string was sent)
-  if (
-    query !== undefined &&
-    query.searchTopic !== undefined
-  ) {
+  if (query !== undefined && query.searchTopic !== undefined) {
     searchTopic = query.searchTopic;
   } else {
-    error = "ERROR: Search topic not provided";
+    error = 'ERROR: Search topic not provided';
   }
 
   //Generate the output
   let output = {
-    searchTopic: searchTopic
+    searchTopic: searchTopic,
   };
-    //check if search work
+  //check if search work
   searchTopic = query.searchTopic;
-  newsapi.v2.everything({
-    q: `${searchTopic}`,
-    from: '2020-04-01',
-    to: '2017-04-28',
-    language: 'en',
-    sortBy: 'relevancy',
-    page: 2
-  }).then(response => {
+  newsapi.v2
+    .everything({
+      // custom search preference
+      q: `${searchTopic}`,
+      // from: '2020-07-30',
+      // to: '2017-08-07',
+      language: 'en',
+      sortBy: 'relevancy',
+      page: 2,
+    })
+    .then((response) => {
       // ** uncomment to see response **//
       // console.log(response);
     });
 
   // Convert output to JSON
   let outputString = JSON.stringify(output, null, 2);
-  console.log("outputString: ", outputString);
+  console.log('outputString: ', outputString);
 
   // artificial delay
   await delay(500);
@@ -160,11 +157,11 @@ async function handleGet(req, res, query) {
   res.send(outputString);
 }
 
-// Receive news and assign to body 
+// Receive news and assign to body
 const receiveNews = (newsdata) => {
-  newsdata.articles.forEach((article) => {    
+  newsdata.articles.forEach((article) => {
     // load news content to body for email content
-    body +=  `
+    body += `
               <div style="margin: 10px; padding: 20px; border: 3px solid lightgray; border-style: dotted;">
               <a href="${article.url}">
               <h1> ${article.title} </h1>
@@ -174,38 +171,38 @@ const receiveNews = (newsdata) => {
               <img src="${article.urlToImage}" alt="News Image" style="width:100%">
               </a>
               </div>
-              `
-  })
-}
+              `;
+  });
+};
 
 //-----------------------------------------------------------
 
 // Assign news to body for the purpose of sending mail
 function getNewsAsBody() {
-  const url = 'http://newsapi.org/v2/top-headlines?' +
-              `category=${userCategory}&` +
-              'country=us&' +
-              `apiKey=${apiKey}`;
+  const url =
+    'http://newsapi.org/v2/top-headlines?' +
+    `category=${userCategory}&` +
+    'country=us&' +
+    `apiKey=${apiKey}`;
   fetch(url)
-  .then(response => response.json())
-  .then(receiveNews)
-  console.log("-> Body has got the news !")
-  console.log("--> Ready to send email  !!")
+    .then((response) => response.json())
+    .then(receiveNews);
+  console.log('-> Body has got the news !');
+  console.log('--> Ready to send email  !!');
 }
-
 
 // Sends an email using gmail account
 function SendMail(mailOptions) {
   var transporter = nodemailer.createTransport(spec);
-  return transporter.sendMail(mailOptions, function(error, info) {
+  return transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      console.log("Error in sending email: ", error);
+      console.log('Error in sending email: ', error);
       try {
         if (/quota/.test(error)) {
-          console.log("We failed because of email quota!");
+          console.log('We failed because of email quota!');
         }
       } catch (error) {
-        console.log("Error: ", error);
+        console.log('Error: ', error);
       }
       return console.log(error);
     }
@@ -216,8 +213,7 @@ function SendMail(mailOptions) {
 //-----------------------------------------------------------
 
 async function sendNotification() {
-  
-  let date = moment().format("MMMM Do, YYYY");
+  let date = moment().format('MMMM Do, YYYY');
   let upperUserCategory = userCategory.toUpperCase();
 
   let mailOptions = {
@@ -229,7 +225,7 @@ async function sendNotification() {
               ${body} 
           <br> 
           <p><a href="http://127.0.0.1:3000"> Visit our News Browser 🔥🔥🔥</a></p>
-          `
+          `,
   };
   SendMail(mailOptions);
 }
