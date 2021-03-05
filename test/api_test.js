@@ -7,6 +7,11 @@ let categories_invalid = ['sports', 'class', 'tech', 'trend']
 let search_valid = ['facebook', 'covid-19', 'usc', 'california', 'iphoneSE']
 let search_invalid = ['qwertyo', '---', 'a-d-111,,dc']
 
+
+/* Test With Mocha, These unit tests are used to check if we get the response 
+    from the "headliner" & "search" from news api.
+*/
+
 function fetch_news_data_category(category) {
     it(`should get response data from newsApi in category: "${category}"`, async() => {
         const url = 'http://newsapi.org/v2/top-headlines?' +
@@ -16,7 +21,7 @@ function fetch_news_data_category(category) {
         await fetch(url)
             .then(res => res.json())
             .then((res) => {
-                console.log(res);
+                //console.log(res.totalResults);
                 assert.notEqual(res.totalResults, 0);
             })
     })
@@ -31,7 +36,7 @@ function fetch_news_data_invalid_category(category) {
         await fetch(url)
             .then(res => res.json())
             .then((res) => {
-                console.log(res.totalResults);
+                //console.log(res.totalResults);
                 assert.equal(res.totalResults, 0);
             })
     })
@@ -46,7 +51,7 @@ function fetch_news_data_search(keyword) {
         await fetch(url)
             .then(res => res.json())
             .then((res) => {
-                console.log(res.totalResults);
+                //console.log(res.totalResults);
                 assert.notEqual(res.totalResults, 0);
             })
     })
@@ -61,7 +66,7 @@ function fetch_news_data_invalid_search(keyword) {
         await fetch(url)
             .then(res => res.json())
             .then((res) => {
-                console.log(res.totalResults);
+                //console.log(res.totalResults);
                 assert.equal(res.totalResults, undefined);
             })
     })
