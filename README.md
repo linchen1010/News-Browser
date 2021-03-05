@@ -37,6 +37,11 @@ npm install
 npm run start
 ```
 
+### Test (with mocha)
+```bash
+npm test
+```
+
 Then open your browser at http://localhost:3000/register to register.html
 
 or http://localhost:3000 to news.html
