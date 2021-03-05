@@ -32,7 +32,7 @@ function fetch_news_data_invalid_category(category) {
             .then(res => res.json())
             .then((res) => {
                 console.log(res.totalResults);
-                assert.notEqual(res.totalResults, 0);
+                assert.equal(res.totalResults, 0);
             })
     })
 }
@@ -62,7 +62,7 @@ function fetch_news_data_invalid_search(keyword) {
             .then(res => res.json())
             .then((res) => {
                 console.log(res.totalResults);
-                assert.equal(res.totalResults, 0);
+                assert.equal(res.totalResults, undefined);
             })
     })
 }
