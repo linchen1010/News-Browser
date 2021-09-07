@@ -3,8 +3,8 @@
 const express = require('express');
 const app = express();
 const NewsAPI = require('newsapi');
-const newsapi = new NewsAPI('504949294bc7419d83beebf27c708229');
-const apiKey = '504949294bc7419d83beebf27c708229';
+const newsapi = "YOUR API KEY"
+const apiKey =  "YOUR API KEY"
 
 global.fetch = require('node-fetch');
 const nodemailer = require('nodemailer');
@@ -12,8 +12,8 @@ const moment = require('moment');
 
 ////////////////////////////////////////////////////////////////////
 // Set gmail username and password
-let pw = 'ben841010';
-let spec = `smtps://linchennn1010@gmail.com:${pw}@smtp.gmail.com`;
+let pw = `####`;
+let spec = `####`;
 ////////////////////////////////////////////////////////////////////
 
 // We need cors middleware to bypass CORS security in browsers.
